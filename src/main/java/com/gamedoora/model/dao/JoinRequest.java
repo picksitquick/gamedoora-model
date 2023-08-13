@@ -22,8 +22,8 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "studio_user_requests")
-public class StudioUserRequest extends Audit implements Serializable {
+@Table(name = "join_request")
+public class JoinRequest extends Audit implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
