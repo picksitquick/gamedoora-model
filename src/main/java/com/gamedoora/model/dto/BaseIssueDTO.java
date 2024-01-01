@@ -1,14 +1,15 @@
 package com.gamedoora.model.dto;
 
 import com.gamedoora.model.dao.ActivityType;
-import com.gamedoora.model.dao.Comments;
-import com.gamedoora.model.dao.IssueHistory;
 import com.gamedoora.model.dao.IssueType;
 import com.gamedoora.model.dao.Priority;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
-import java.util.List;
 
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class BaseIssueDTO {
     private IssueType issueType;
 

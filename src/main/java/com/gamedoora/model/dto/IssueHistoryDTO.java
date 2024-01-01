@@ -1,12 +1,13 @@
 package com.gamedoora.model.dto;
 
 import com.gamedoora.model.dao.ActivityType;
-import com.gamedoora.model.dao.Users;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.util.Date;
 
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class IssueHistoryDTO {
 
     private ActivityType activityType;

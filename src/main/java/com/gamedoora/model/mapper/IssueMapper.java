@@ -19,9 +19,5 @@ public abstract class IssueMapper extends BaseMapper{
 
     public abstract BaseIssueDTO baseIssueToIssueDTO(BaseIssue baseIssue);
 
-    @Mapping(target = "createdBy" , expression = "java(getCreatedBy())")
-    @Mapping(target = "createdOn" , expression = "java(getNewDate())")
-    @Mapping(target = "updateBy" , expression = "java(getUpdatedBy())")
-    @Mapping(target = "updateOn" , expression = "java(getNewDate())")
     public abstract BaseIssue baseIssueDTOToBaseIssue(BaseIssueDTO baseIssueDTO);
 }
