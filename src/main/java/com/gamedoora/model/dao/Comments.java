@@ -42,4 +42,8 @@ public class Comments extends Audit implements Serializable {
     @JoinColumn(name = "user_id")
     Users users;
 
+    @ManyToOne
+    @JoinColumn(name = "base_issueId")
+    private BaseIssue baseIssue;
+
 }

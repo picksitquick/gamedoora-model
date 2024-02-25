@@ -38,4 +38,8 @@ public class IssueHistory {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
+
+    @ManyToOne
+    @JoinColumn(name = "base_issueId")
+    private BaseIssue baseIssue;
 }

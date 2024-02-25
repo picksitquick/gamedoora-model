@@ -24,7 +24,7 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "emailId"))
 public class Users extends Audit implements Serializable {
 
 	private static final long serialVersionUID = 1L;
