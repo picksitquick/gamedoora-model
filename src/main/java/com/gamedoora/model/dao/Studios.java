@@ -31,9 +31,8 @@ public class Studios extends Audit implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
-    @Column(name = "id" , nullable = false)
-    private long id;
+    @Column(name = "emailId")
+    private String emailId;
 
     @Column(name = "name")
     private String name;

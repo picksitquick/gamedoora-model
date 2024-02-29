@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Builder
 @Entity
@@ -27,25 +28,22 @@ public class Comments extends Audit implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
+    // look into comments for KanBan board and make necessary changes, not going to thread comments, for activity stream use a separate comment
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Column(name = "context" , nullable = false)
-    private String context;
+    private UUID issueId; // for project boards use UUID instead of long
 
-    @Column(name = "commentable_id" , nullable = false)
-    private long commentableId;
-
-    @Column(name = "commentable_type" , nullable = false)
-    private String type;
+    private String comment;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     Users users;
 
-    @Column(name = "parent_id")
-    private long parentId;
+    @ManyToOne
+    @JoinColumn(name = "base_issueId")
+    private BaseIssue baseIssue;
+
 }

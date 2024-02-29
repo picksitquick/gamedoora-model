@@ -8,7 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -17,7 +16,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
@@ -26,21 +24,17 @@ import java.util.Set;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "emailId"))
 public class Users extends Audit implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id", nullable = false)
-	long id;
-
 	@Column(name = "provider_token", nullable = false)
 	String providerToken;
 
-	@Column(name = "email", nullable = false)
-	String email;
+	@Id
+	@Column(name = "emailId", nullable = false)
+	String emailId;
 
 	@Column(name = "first_name")
 	String firstName;
@@ -100,13 +94,9 @@ public class Users extends Audit implements Serializable {
 	@JoinTable(name = "user_notification" , joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "notification_id"))
 	Set<Notifications> notifications;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_board", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "boardId"))
+	Set<KanBan> kanBanSet;
 
 	public String getProviderToken() {
 		return providerToken;
@@ -117,11 +107,11 @@ public class Users extends Audit implements Serializable {
 	}
 
 	public String getEmail() {
-		return email;
+		return emailId;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public String getFirstName() {

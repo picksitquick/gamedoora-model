@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Comment;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -93,7 +94,8 @@ public class StudioAsset extends Audit implements Serializable {
     @Column(name = "script_locked_at")
     private Date scriptLockedAt;
 
-    @Column(name = "asset_type" , columnDefinition = "VARCHAR(255) COMMENT 'document or image or audio or video.'")
+    @Column(name = "asset_type" , columnDefinition = "VARCHAR(255)")
+    @Comment(value = "document or image or audio or video.")
     private String assetType;
 
     /* ColumnDefinition syntax has been updated, using nullable=false doesn't seem to work consistently.*/

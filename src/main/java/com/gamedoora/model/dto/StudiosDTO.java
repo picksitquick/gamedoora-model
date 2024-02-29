@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class StudiosDTO {
 
-    private long id;
+    private String emailId;
 
     private String name;
 
