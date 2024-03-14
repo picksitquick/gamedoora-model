@@ -23,7 +23,7 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "issue history")
+@Table(name = "issue_history")
 public class IssueHistory {
 
     @Id

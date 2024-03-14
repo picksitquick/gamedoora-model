@@ -30,16 +30,12 @@ public class ProjectUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue
     @Column(name = "Id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     Users users;
 
-//    @ManyToOne
-//    @JoinColumn(name = "project_id")
-//    Projects projects;
-// testing
 }
